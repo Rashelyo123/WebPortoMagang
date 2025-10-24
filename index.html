@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rashelyo Syawalian - Game Developer Indie Portfolio</title>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #1e3a8a 0%,
+          #1f2937 50%,
+          #000000 100%
+        );
+      }
+
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+      }
+
+      .skill-progress {
+        height: 6px;
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        border-radius: 3px;
+        transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+      }
+
+      .floating-element {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-8px) rotate(1deg);
+        }
+        50% {
+          transform: translateY(-4px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-12px) rotate(-1deg);
+        }
+      }
+
+      .text-glow {
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      }
+
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .project-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 58, 138, 0.9),
+          rgba(0, 0, 0, 0.8)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #2563eb, #1e40af);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+      }
+
+      .section-fade {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .section-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="bg-black text-white font-sans">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full bg-black bg-opacity-90 backdrop-blur-sm z-50 border-b border-blue-900"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-2xl font-bold text-glow">🎮 RS</div>
+          <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link hover:text-blue-400">Home</a>
+            <a href="#about" class="nav-link hover:text-blue-400">About</a>
+            <a href="#skills" class="nav-link hover:text-blue-400">Skills</a>
+            <a href="#projects" class="nav-link hover:text-blue-400"
+              >Projects</a
+            >
+            <a href="#contact" class="nav-link hover:text-blue-400">Contact</a>
+          </div>
+          <button class="md:hidden text-white">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewbox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-full gradient-bg flex items-center justify-center relative overflow-hidden"
+    >
+      <div class="absolute inset-0">
+        <div
+          class="floating-element absolute top-20 left-10 text-blue-400 text-4xl opacity-20"
+        >
+          🎯
+        </div>
+        <div
+          class="floating-element absolute top-40 right-20 text-blue-500 text-3xl opacity-30"
+          style="animation-delay: -1s"
+        >
+          ⚡
+        </div>
+        <div
+          class="floating-element absolute bottom-32 left-20 text-blue-300 text-5xl opacity-20"
+          style="animation-delay: -2s"
+        >
+          🚀
+        </div>
+        <div
+          class="floating-element absolute bottom-20 right-10 text-blue-400 text-4xl opacity-25"
+          style="animation-delay: -3s"
+        >
+          💎
+        </div>
+      </div>
+      <div class="container mx-auto px-6 py-32 text-center relative z-10">
+        <div class="floating-element text-8xl mb-8">🎮</div>
+        <h1
+          id="full-name"
+          class="text-6xl md:text-7xl font-bold mb-6 text-glow"
+        >
+          Rashelyo Syawalian
+        </h1>
+        <p id="title" class="text-2xl md:text-3xl mb-4 text-blue-300">
+          Game Developer
+        </p>
+        <p id="institution" class="text-xl mb-12 text-gray-300">
+          PENS - Electronic Engineering Polytechnic Institute of Surabaya
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12"
+        >
+          <button
+            onclick="scrollToSection('projects')"
+            class="btn-primary px-8 py-4 rounded-full font-semibold text-lg"
+          >
+            Lihat Portfolio
+          </button>
+          <button
+            onclick="downloadCV()"
+            class="border-2 border-blue-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-500 hover:text-white transition-all"
+          >
+            Download CV
+          </button>
+        </div>
+        <div class="text-gray-400">
+          <p class="mb-2">2+ Tahun Pengalaman Unity Development</p>
+          <div class="flex justify-center space-x-4 text-sm">
+            <span>Unity 3D & 2D</span> <span>•</span>
+            <span>C# Programming</span> <span>•</span> <span>Game Design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900 section-fade">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center mb-16 text-glow">
+          Tentang Saya
+        </h2>
+        <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <p
+                id="about-description"
+                class="text-lg text-gray-300 leading-relaxed mb-8"
+              >
+                Saya adalah mahasiswa Game Technology di PENS dengan passion
+                mendalam dalam pengembangan game. Dengan 2 tahun pengalaman
+                dalam Unity development, saya telah mengembangkan berbagai jenis
+                game dari horror roguelike hingga tower defense. Saya memiliki
+                keahlian khusus dalam programming system, game mechanics, dan
+                level design yang menciptakan pengalaman bermain yang engaging
+                dan memorable.
+              </p>
+              <div class="grid grid-cols-2 gap-8 mb-8">
+                <div
+                  class="text-center p-6 bg-blue-900 bg-opacity-30 rounded-lg"
+                >
+                  <div class="text-4xl font-bold text-blue-400 mb-2">2+</div>
+                  <div class="text-gray-300">Tahun Pengalaman</div>
+                </div>
+                <div
+                  class="text-center p-6 bg-blue-900 bg-opacity-30 rounded-lg"
+                >
+                  <div class="text-4xl font-bold text-blue-400 mb-2">5+</div>
+                  <div class="text-gray-300">Game Projects</div>
+                </div>
+              </div>
+              <div class="flex space-x-4">
+                <span class="bg-blue-600 px-4 py-2 rounded-full text-sm"
+                  >Unity</span
+                >
+                <span class="bg-gray-700 px-4 py-2 rounded-full text-sm"
+                  >C# Developer</span
+                >
+                <span class="bg-blue-800 px-4 py-2 rounded-full text-sm"
+                  >Game Designer</span
+                >
+              </div>
+            </div>
+            <div class="text-center">
+              <div
+                class="w-80 h-80 mx-auto bg-gradient-to-br from-blue-600 via-blue-800 to-black rounded-full flex items-center justify-center text-white text-9xl shadow-2xl"
+              >
+                👨‍💻
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-black section-fade">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center mb-16 text-glow">Keahlian</h2>
+        <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="bg-gray-900 p-8 rounded-xl">
+              <h3 class="text-3xl font-bold mb-8 text-blue-400">
+                Technical Skills
+              </h3>
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between mb-3">
+                    <span class="font-semibold text-lg">Unity 3D &amp; C#</span>
+                    <span class="text-blue-400 font-bold">65%</span>
+                  </div>
+                  <div class="bg-gray-700 rounded-full h-2">
+                    <div class="skill-progress w-[65%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-3">
+                    <span class="font-semibold text-lg"
+                      >Programming System &amp; Mechanic</span
+                    >
+                    <span class="text-blue-400 font-bold">70%</span>
+                  </div>
+                  <div class="bg-gray-700 rounded-full h-2">
+                    <div class="skill-progress w-[70%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-3">
+                    <span class="font-semibold text-lg">Game Design</span>
+                    <span class="text-blue-400 font-bold">50%</span>
+                  </div>
+                  <div class="bg-gray-700 rounded-full h-2">
+                    <div class="skill-progress w-[50%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-3">
+                    <span class="font-semibold text-lg">Level Design</span>
+                    <span class="text-blue-400 font-bold">60%</span>
+                  </div>
+                  <div class="bg-gray-700 rounded-full h-2">
+                    <div class="skill-progress w-[60%]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-900 p-8 rounded-xl">
+              <h3 class="text-3xl font-bold mb-8 text-blue-400">
+                Specializations
+              </h3>
+              <div class="space-y-6">
+                <div
+                  class="flex items-center space-x-4 p-4 bg-blue-900 bg-opacity-30 rounded-lg"
+                >
+                  <div class="text-3xl">🎯</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Horror Game Development</h4>
+                    <p class="text-gray-400">
+                      Psychological horror &amp; atmosphere design
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center space-x-4 p-4 bg-blue-900 bg-opacity-30 rounded-lg"
+                >
+                  <div class="text-3xl">🏰</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Tower Defense Systems</h4>
+                    <p class="text-gray-400">Strategic gameplay mechanics</p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center space-x-4 p-4 bg-blue-900 bg-opacity-30 rounded-lg"
+                >
+                  <div class="text-3xl">🎲</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Roguelike Mechanics</h4>
+                    <p class="text-gray-400">
+                      Procedural generation &amp; replayability
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center space-x-4 p-4 bg-blue-900 bg-opacity-30 rounded-lg"
+                >
+                  <div class="text-3xl">⚗️</div>
+                  <div>
+                    <h4 class="font-bold text-lg">Simulation Games</h4>
+                    <p class="text-gray-400">Complex system interactions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools & Software Section -->
+<section id="tools" class="py-20 bg-gray-900 section-fade">
+  <div class="container mx-auto px-6">
+    <h2 class="text-5xl font-bold text-center mb-16 text-glow">
+      Tools & Software
+    </h2>
+
+    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Unity -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" class="w-10 h-10" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">Unity</h3>
+          <p class="text-gray-400 text-sm">Game Engine utama (2D & 3D)</p>
+        </div>
+      </div>
+
+      <!-- Visual Studio Code -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="w-10 h-10" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">Visual Studio Code</h3>
+          <p class="text-gray-400 text-sm">Editor utama untuk C# & scripting</p>
+        </div>
+      </div>
+
+      <!-- Dotween -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unity_Timeline_icon.png" alt="Dotween" class="w-10 h-10 rounded-lg" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">Dotween</h3>
+          <p class="text-gray-400 text-sm">Tweening & animasi efisien di Unity</p>
+        </div>
+      </div>
+
+      <!-- Mixamo -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://seeklogo.com/images/M/mixamo-logo-344C58C0C8-seeklogo.com.png" alt="Mixamo" class="w-10 h-10 rounded-lg" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">Mixamo</h3>
+          <p class="text-gray-400 text-sm">Rigging & animasi karakter cepat</p>
+        </div>
+      </div>
+
+      <!-- Git -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-10 h-10" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">Git Version</h3>
+          <p class="text-gray-400 text-sm">Versi kontrol & kolaborasi proyek</p>
+        </div>
+      </div>
+
+      <!-- Cinemachine -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://i.imgur.com/INEX8E7.png" alt="Cinemachine" class="w-10 h-10 rounded-lg" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">Cinemachine</h3>
+          <p class="text-gray-400 text-sm">Kamera dinamis & sinematik di Unity</p>
+        </div>
+      </div>
+
+      <!-- ChatGPT -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" class="w-10 h-10 rounded-full bg-white p-1" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">ChatGPT</h3>
+          <p class="text-gray-400 text-sm">Bantuan ide & debugging cepat</p>
+        </div>
+      </div>
+
+      <!-- Claude AI -->
+      <div
+        class="flex items-center space-x-4 p-6 bg-black rounded-xl card-hover border border-blue-900"
+      >
+        <img src="https://seeklogo.com/images/A/anthropic-ai-logo-6F1C56AC4A-seeklogo.com.png" alt="Claude AI" class="w-10 h-10 rounded-full bg-white p-1" />
+        <div>
+          <h3 class="text-lg font-semibold text-blue-400">Claude AI</h3>
+          <p class="text-gray-400 text-sm">Generatif AI untuk naskah & desain</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900 section-fade">
+      <div class="container mx-auto px-6">
+        <h2 class="text-5xl font-bold text-center mb-16 text-glow">
+          Portfolio Projects
+        </h2>
+
+        <div class="max-w-7xl mx-auto">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- YANTO Project -->
+            <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1nLzIyMzM2ODU3LnBuZw==/315x250%23c/YDC2VI.png"
+                  alt="YANTO Game Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    onclick="openProject('https://rashelyo.itch.io/yanto-katanya')"
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    Lihat di Itch.io
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">YANTO</h3>
+                <p class="text-gray-300 mb-4">
+                  Game roguelike horror dengan gaya 2D pixel dan gameplay yang
+                  challenging. Dipublikasikan di itch.io dengan sistem
+                  procedural generation.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-red-600 px-3 py-1 rounded-full text-sm"
+                    >Horror</span
+                  >
+                  <span class="bg-purple-600 px-3 py-1 rounded-full text-sm"
+                    >Roguelike</span
+                  >
+                  <span class="bg-blue-600 px-3 py-1 rounded-full text-sm"
+                    >Unity</span
+                  >
+                </div>
+                 <div class="text-sm text-gray-400">Published • rashelyo.itch.io</div>
+                <div class="text-sm text-gray-400">
+                  Top 1 Best Game – IGGI GameJam Portofolio
+                </div>
+              </div>
+            </div>
+
+            <!-- Ravage City -->
+            <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1hZ2UvMzc4NTYzNS8yMjU2MTkyMC5wbmc=/original/eXGLwX.png"
+                  alt="Ravage City Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">
+                  Ravage City
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Tower defense FPS yang menggabungkan strategi dan aksi
+                  real-time. Pemain harus mempertahankan kota dari serangan
+                  musuh dengan berbagai senjata dan menara.
+                </p>
+
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-orange-600 px-3 py-1 rounded-full text-sm"
+                    >Tower Defense</span
+                  >
+                  <span class="bg-red-600 px-3 py-1 rounded-full text-sm"
+                    >FPS</span
+                  >
+                  <span class="bg-blue-600 px-3 py-1 rounded-full text-sm"
+                    >Unity</span
+                  >
+                </div>
+ <div class="text-sm text-gray-400">Published • rashelyo.itch.io</div>
+                <div class="text-sm text-gray-400">Top 60 GameSeed 2025 Student</div>
+              </div>
+            </div>
+
+            <!-- Repeated Room -->
+            <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1nLzIxODc4NTgwLnBuZw==/315x250%23c/C2%2F3qf.png"
+                  alt="Repeated Room Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">
+                  Repeated Room
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Horror psychological game yang mengeksplorasi konsep ruang
+                  berulang dengan elemen psikologis yang mendalam dan atmosfer
+                  yang mengganggu.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-purple-600 px-3 py-1 rounded-full text-sm"
+                    >Horror</span
+                  >
+                  <span class="bg-indigo-600 px-3 py-1 rounded-full text-sm"
+                    >Psychological</span
+                  >
+                  <span class="bg-blue-600 px-3 py-1 rounded-full text-sm"
+                    >Unity</span
+                  >
+                </div>
+                <div class="text-sm text-gray-400">Completed</div>
+              </div>
+            </div>
+
+            <!-- Potion Madness -->
+            <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1hZ2UvMzUzNDU0Ni8yMTYwNDY1NS5qcGc=/original/bI%2BmVE.jpg"
+                  alt="Potion Madness Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">
+                  Potion Madness
+                </h3>
+                <p class="text-gray-300 mb-4">
+                  Game simulasi memasak ramuan dengan sistem crafting yang
+                  kompleks. Pemain harus mengelola bahan-bahan dan resep untuk
+                  menciptakan ramuan ajaib.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-green-600 px-3 py-1 rounded-full text-sm"
+                    >Simulation</span
+                  >
+                  <span class="bg-teal-600 px-3 py-1 rounded-full text-sm"
+                    >Cooking</span
+                  >
+                  <span class="bg-blue-600 px-3 py-1 rounded-full text-sm"
+                    >Unity</span
+                  >
+                </div>
+                <div class="text-sm text-gray-400">Published • rashelyo.itch.io</div>
+                <div class="text-sm text-gray-400">Best Game – SpaceJam PENS</div>
+              </div>
+            </div>
+
+            <!-- Last Wave -->
+            <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1hZ2UvMzY2MzgwNS8yMTgxMjk3OS5wbmc=/794x1000/oJ%2BUYr.png"
+                  alt="Last Wave Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">Last Wave</h3>
+                <p class="text-gray-300 mb-4">
+                  Tower defense realistis dengan grafik dan mekanik yang detail.
+                  Menampilkan sistem pertahanan yang kompleks dengan berbagai
+                  unit dan upgrade.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-gray-600 px-3 py-1 rounded-full text-sm"
+                    >Tower Defense</span
+                  >
+                  <span class="bg-slate-600 px-3 py-1 rounded-full text-sm"
+                    >Realistic</span
+                  >
+                  <span class="bg-blue-600 px-3 py-1 rounded-full text-sm"
+                    >Unity</span
+                  >
+                </div>
+                <div class="text-sm text-gray-400">Completed</div>
+                
+              </div>
+              
+            </div>
+
+            <!-- Running Campus -->
+             <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1nLzIwMDE3OTMxLnBuZw==/original/iX%2BZjY.png"
+                  alt="Running Campus Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">Run! From Campus</h3>
+                <p class="text-gray-300 mb-4">
+                 Bayangkan kamu seorang mahasiswa yang hidup damai di kampus, hingga sebuah
+      proyek misterius membuka portal-portal yang menyedot seluruh area kampus!
+      Kamu harus terus berlari, melompat, slide, dan menembak untuk bertahan.
+                </p>
+                 <div class="flex flex-wrap gap-2 mb-4">
+      <span class="bg-green-600 px-3 py-1 rounded-full text-sm">Endless Runner</span>
+      <span class="bg-red-600 px-3 py-1 rounded-full text-sm">Action</span>
+      <span class="bg-blue-600 px-3 py-1 rounded-full text-sm">Unity</span>
+    </div>
+
+    <div class="text-sm text-gray-400">Released • rashelyo.itch.io</div>
+          </div>
+                                                          
+        </div>
+
+        <!-- Missing keyframe -->
+
+         <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1nLzE5NTY2NzQ4LnBuZw==/315x250%23c/GlhLV%2F.png"
+                  alt="Last Wave Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">Missing Keys</h3>
+                <p class="text-gray-300 mb-4">
+                  Game puzzle-platformer minimalis dengan kontrol dua tombol (balik & lompat). Pemain mengendalikan karakter berbentuk tombol keyboard seperti “W,” “A,” “S,” dan “D” untuk melewati berbagai level dan menemukan tombol yang hilang. Game ini berfokus pada desain level yang cerdas, visual minimalis, serta mekanik sederhana namun menantang.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-gray-600 px-3 py-1 rounded-full text-sm"
+                    >2D Platformer</span
+                  >
+                  <span class="bg-slate-600 px-3 py-1 rounded-full text-sm"
+                    >Puzzle</span
+                  >
+                  <span class="bg-blue-600 px-3 py-1 rounded-full text-sm"
+                    >Unity</span
+                  >
+                </div>
+                <div class="text-sm text-gray-400">Released • rashelyo.itch.io</div>
+
+              </div>
+              
+            </div>
+
+            <!-- RacePress -->
+
+            <div
+              class="project-card bg-black rounded-xl overflow-hidden card-hover relative"
+            >
+              <div class="relative h-64">
+                <img
+                  src="https://img.itch.zone/aW1nLzE4NDQwMjkzLnBuZw==/315x250%23c/gaGCfk.png"
+                  alt="RacePress Screenshot"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="project-overlay absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 hover:opacity-100 transition duration-300"
+                >
+                  <button
+                    class="btn-primary px-6 py-3 rounded-full font-semibold"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-blue-400">RacePress</h3>
+                <p class="text-gray-300 mb-4">
+                  Game balap refleks cepat di mana pemain harus memilih jalur tercepat dan
+      menghindari rintangan seperti oli dan cone lalu lintas. Setiap level
+      menawarkan kesulitan bertahap dan sistem skor yang menilai performa pemain
+      di akhir balapan.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-gray-600 px-3 py-1 rounded-full text-sm"
+                    >Racing</span
+                  >
+                  <span class="bg-slate-600 px-3 py-1 rounded-full text-sm"
+                    >Arcade</span
+                  >
+                  <span class="bg-blue-600 px-3 py-1 rounded-full text-sm"
+                    >Unity</span
+                  >
+                </div>
+                <div class="text-sm text-gray-400">Released • rashelyo.itch.io</div>
+            </section>
+
+            <!-- Achievements Section -->
+<section id="achievements" class="py-20 bg-black section-fade">
+  <div class="container mx-auto px-6">
+    <h2 class="text-5xl font-bold text-center mb-16 text-glow">
+      Achievements & Awards
+    </h2>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+      
+      <!-- YANTO Achievement -->
+      <div class="bg-gray-900 rounded-xl overflow-hidden card-hover">
+        <img 
+          src="Rashelyo Syawalian_page-0001.jpg" 
+          alt="YANTO - IGGI GameJam Top 1"
+          class="h-64 w-full object-cover"
+        />
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2 text-blue-400">🏆 YANTO</h3>
+          <p class="text-gray-300 mb-3">
+            Menjadi <span class="text-blue-400 font-semibold">Top 1 Best Game</span> 
+            di acara <strong>GameJam Portofolio</strong> yang diadakan oleh 
+            <span class="text-blue-400">IGGI</span>.
+          </p>
+          <a 
+            href="https://rashelyo.itch.io/yanto-katanya" 
+            target="_blank"
+            class="btn-primary px-5 py-2 rounded-full inline-block mt-3"
+          >
+            Lihat Game
+          </a>
+        </div>
+      </div>
+
+      <!-- Potion Madness Achievement -->
+      <div class="bg-gray-900 rounded-xl overflow-hidden card-hover">
+        <img 
+          src="https://media.licdn.com/dms/image/v2/D5622AQFhV4LRpxIO4A/feedshare-shrink_2048_1536/B56Zdy_hRlGoAs-/0/1749980948783?e=1762387200&v=beta&t=3ioIQvXFTZN4PuekbJHjE-QvZLLh0R1aSIZWLuXZxI0"
+          alt="Potion Madness - SpaceJam Best Game"
+          class="h-64 w-full object-cover"
+        />
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2 text-blue-400">🏆 Potion Madness</h3>
+          <p class="text-gray-300 mb-3">
+            Meraih <span class="text-blue-400 font-semibold">Top Best Game</span> 
+            di event <strong>SpaceJam</strong> (lomba project akhir semester di 
+            <span class="text-blue-400">PENS</span>).
+          </p>
+          <a 
+            href="https://rashelyo.itch.io/potion-madness" 
+            target="_blank"
+            class="btn-primary px-5 py-2 rounded-full inline-block mt-3"
+          >
+            Lihat Game
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+ <!-- Contact Section -->
+<section id="contact" class="py-20 bg-black section-fade">
+  <div class="container mx-auto px-6">
+    <h2 class="text-5xl font-bold text-center mb-16 text-glow">
+      Mari Berkolaborasi
+    </h2>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-xl text-gray-300 mb-8">
+          Tertarik untuk berkolaborasi dalam proyek game yang menarik? Saya siap
+          membantu mewujudkan ide game Anda dengan keahlian Unity dan C#
+          programming.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div class="space-y-8">
+          <div class="flex items-center space-x-6 p-6 bg-gray-900 rounded-xl">
+            <div class="text-4xl">📧</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2 text-blue-400">Email</h3>
+              <p id="email-contact" class="text-gray-300">
+                rashelyosyawalian31@gmail.com
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-6 p-6 bg-gray-900 rounded-xl">
+            <div class="text-4xl">🎮</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2 text-blue-400">Itch.io</h3>
+              <p id="itch-profile" class="text-gray-300">rashelyo.itch.io</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-6 p-6 bg-gray-900 rounded-xl">
+            <div class="text-4xl">🎓</div>
+            <div>
+              <h3 class="text-xl font-bold mb-2 text-blue-400">Institution</h3>
+              <p class="text-gray-300">PENS - Surabaya</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="bg-gray-900 p-8 rounded-xl">
+          <h3 class="text-2xl font-bold mb-6 text-blue-400">Kirim Pesan</h3>
+
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-semibold mb-2">Nama</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-white"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-semibold mb-2">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-white"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-semibold mb-2">Subjek</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-white"
+              />
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-semibold mb-2">Pesan</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                class="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg focus:border-blue-500 focus:outline-none text-white resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full btn-primary py-3 rounded-lg font-semibold text-lg"
+            >
+              Kirim Pesan
+            </button>
+          </form>
+
+          <!-- Notification area -->
+          <div id="contact-message" class="mt-4 hidden"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    // Ganti dengan Public Key kamu dari EmailJS Dashboard
+    emailjs.init("G1RGIlenPCEdDuSjx");
+  })();
+
+  const form = document.getElementById("contact-form");
+  const messageDiv = document.getElementById("contact-message");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs
+      // Ganti ID di bawah sesuai milikmu
+      .sendForm("service_3xzf2by", "template_o722j2e", this)
+      .then(() => {
+        messageDiv.className =
+          "mt-4 p-4 bg-blue-600 bg-opacity-20 border border-blue-400 rounded-lg text-blue-300";
+        messageDiv.textContent =
+          "✅ Pesan berhasil dikirim! Terima kasih sudah menghubungi saya 🙌";
+        messageDiv.classList.remove("hidden");
+        form.reset();
+
+        setTimeout(() => {
+          messageDiv.classList.add("hidden");
+        }, 5000);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        messageDiv.className =
+          "mt-4 p-4 bg-red-600 bg-opacity-20 border border-red-400 rounded-lg text-red-300";
+        messageDiv.textContent =
+          "❌ Gagal mengirim pesan. Silakan coba lagi nanti.";
+        messageDiv.classList.remove("hidden");
+
+        setTimeout(() => {
+          messageDiv.classList.add("hidden");
+        }, 5000);
+      });
+  });
+</script>
+
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 border-t border-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center space-x-4 mb-4 md:mb-0">
+            <div class="text-3xl">🎮</div>
+            <div>
+              <div class="text-xl font-bold text-blue-400">
+                Rashelyo Syawalian
+              </div>
+              <div class="text-gray-400">Game Developer Portfolio</div>
+            </div>
+          </div>
+          <div class="text-center md:text-right">
+            <p class="text-gray-400 mb-2">© 2024 Rashelyo Syawalian</p>
+            <p class="text-sm text-gray-500">
+              Dibuat dengan passion untuk game development
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const defaultConfig = {
+        full_name: "Rashelyo Syawalian",
+        title: "Game Developer",
+        institution:
+          "PENS - Electronic Engineering Polytechnic Institute of Surabaya",
+        about_description:
+          "Saya adalah mahasiswa Game Technology di PENS dengan passion mendalam dalam pengembangan game. Dengan 2 tahun pengalaman dalam Unity development, saya telah mengembangkan berbagai jenis game dari horror roguelike hingga tower defense. Saya memiliki keahlian khusus dalam programming system, game mechanics, dan level design yang menciptakan pengalaman bermain yang engaging dan memorable.",
+        email_contact: "rashelyosyawalian31@gmail.com",
+        itch_profile: "rashelyo.itch.io",
+      };
+
+      function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+
+      function downloadCV() {
+        const messageDiv = document.createElement("div");
+        messageDiv.className =
+          "fixed top-4 right-4 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg z-50";
+        messageDiv.textContent = "CV download akan segera tersedia!";
+        document.body.appendChild(messageDiv);
+
+        setTimeout(() => {
+          document.body.removeChild(messageDiv);
+        }, 3000);
+      }
+
+      function openProject(url) {
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+
+      function handleContactForm(event) {
+        event.preventDefault();
+        const messageDiv = document.getElementById("contact-message");
+        messageDiv.className =
+          "mt-4 p-4 bg-blue-600 bg-opacity-20 border border-blue-400 rounded-lg text-blue-300";
+        messageDiv.textContent =
+          "Terima kasih! Pesan Anda telah terkirim. Saya akan segera menghubungi Anda kembali.";
+        messageDiv.classList.remove("hidden");
+        event.target.reset();
+
+        setTimeout(() => {
+          messageDiv.classList.add("hidden");
+        }, 5000);
+      }
+
+      // Scroll animations
+      function animateOnScroll() {
+        const sections = document.querySelectorAll(".section-fade");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      }
+
+      // Skill bar animations
+      function animateSkillBars() {
+        const skillBars = document.querySelectorAll(".skill-progress");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const width = entry.target.classList.contains("w-[95%]")
+                  ? "95%"
+                  : entry.target.classList.contains("w-[90%]")
+                  ? "90%"
+                  : entry.target.classList.contains("w-[85%]")
+                  ? "85%"
+                  : "80%";
+                entry.target.style.width = width;
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        skillBars.forEach((bar) => observer.observe(bar));
+      }
+
+      async function render(config) {
+        document.getElementById("full-name").textContent =
+          config.full_name || defaultConfig.full_name;
+        document.getElementById("title").textContent =
+          config.title || defaultConfig.title;
+        document.getElementById("institution").textContent =
+          config.institution || defaultConfig.institution;
+        document.getElementById("about-description").textContent =
+          config.about_description || defaultConfig.about_description;
+        document.getElementById("email-contact").textContent =
+          config.email_contact || defaultConfig.email_contact;
+        document.getElementById("itch-profile").textContent =
+          config.itch_profile || defaultConfig.itch_profile;
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () => config.primary_color || "#3b82f6",
+              set: (value) => {
+                config.primary_color = value;
+                if (window.elementSdk) {
+                  window.elementSdk.setConfig({ primary_color: value });
+                }
+              },
+            },
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || "Inter, system-ui, sans-serif",
+            set: (value) => {
+              config.font_family = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+          },
+          fontSizeable: {
+            get: () => config.font_size || 16,
+            set: (value) => {
+              config.font_size = value;
+              if (window.elementSdk) {
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            },
+          },
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["full_name", config.full_name || defaultConfig.full_name],
+          ["title", config.title || defaultConfig.title],
+          ["institution", config.institution || defaultConfig.institution],
+          [
+            "about_description",
+            config.about_description || defaultConfig.about_description,
+          ],
+          [
+            "email_contact",
+            config.email_contact || defaultConfig.email_contact,
+          ],
+          ["itch_profile", config.itch_profile || defaultConfig.itch_profile],
+        ]);
+      }
+
+      // Initialize SDK when available
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          render,
+          mapToCapabilities,
+          mapToEditPanelValues,
+        });
+      }
+
+      // Initialize animations
+      document.addEventListener("DOMContentLoaded", () => {
+        animateOnScroll();
+        animateSkillBars();
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'990e452e378e602d',t:'MTc2MDg1NTg4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+    <script>
+  const menuBtn = document.querySelector("nav button");
+  const menuLinks = document.querySelector("nav .hidden.md\\:flex");
+
+  menuBtn.addEventListener("click", () => {
+    menuLinks.classList.toggle("hidden");
+    menuLinks.classList.toggle("flex");
+    menuLinks.classList.toggle("flex-col");
+    menuLinks.classList.toggle("bg-black");
+    menuLinks.classList.toggle("p-6");
+  });
+</script>
+
+  </body>
+</html>
